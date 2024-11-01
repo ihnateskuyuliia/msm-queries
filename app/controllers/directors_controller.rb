@@ -4,4 +4,11 @@ class DirectorsController < ApplicationController
     render({ :template => "director_templates/list"})
   end
 
+  def show
+    the id = params.fetch("the_id")
+
+    @x = Director.where({ :id => the_id })
+    render({ :template => "director_templates/details"})
+  end
+
 end
