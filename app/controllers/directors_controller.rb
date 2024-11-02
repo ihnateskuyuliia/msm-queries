@@ -4,6 +4,13 @@ class DirectorsController < ApplicationController
     render({ :template => "director_templates/list"})
   end
 
+  def junior
+       
+    @the_director = Director.where.not({ :dob => nil }).order(dob: :desc).first
+
+    render({ :template => "director_templates/junior"})
+  end
+
   def show
     the_id = params.fetch("the_id")
 
